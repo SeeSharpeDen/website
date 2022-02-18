@@ -1,1 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeeSharpeDen</title>
+</head>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<body>
+<div style="text-align: center;"> <!--Start of centering div-->
+    <h1 class="titlehover">SeeSharpeDen</h1>
+    <hr>
+    <h4></h4>
+    <h4>Latest Web Commit: <a href="https://github.com/SeeSharpeDen/website/commit/main" target="_blank"><span id="LatestWebCommit">Connecting to GitHub API...</span></a></h4>
+    <h4>Latest Bot Commit: <a href="https://github.com/SeeSharpeDen/ssd-bot/commit/master" target="_blank"><span id="LatestBotCommit">Connecting to GitHub API...</span></a></h4>
+    <hr>
+</div> <!--End of center div-->
+</body>
 
+<!--JS for Github API getting latest web commit :) -->
+<script>
+    $.get("https://api.github.com/repos/SeeSharpeDen/website/commits", function(res) {
+    const sha = res[0].sha;
+    $("#LatestWebCommit").text(sha);
+});
+</script>
+<!--JS for Github API getting latest bot commit :) -->
+<script>
+    $.get("https://api.github.com/repos/SeeSharpeDen/ssd-bot/commits", function(res) {
+    const sha = res[0].sha;
+    $("#LatestBotCommit").text(sha);
+});
+</script>
+<!--Start CSS-->
+<!--I may move to external sheet but tbh im lazy-->
+
+<style>
+    body{
+        background-color: #04052E;
+    }
+    .titlehover:hover {
+        text-shadow: 4px 4px #0D00A4;
+        color: #ffffff;
+        font-family: Ubuntu;
+        font-size: 55px;
+    }
+    h1 {
+        color: #ffffff;
+        font-family: Ubuntu;
+        font-size: 55px;
+    }
+    h4 {
+        color: #ffffff;
+        font-family: Ubuntu;
+        font-size: 14px;
+    }
+    a{
+        text-decoration: none;
+        color: #0D00A4;
+    }
+</style>
+
+</html>
