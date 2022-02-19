@@ -9,12 +9,16 @@
 <link rel="stylesheet" href="https://cdn.simplecss.org/simple.css">
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <body>
+    <div class="loader_bg">
+        <div class="loader"></div>
+    </div>
 <div style="text-align: center;"> <!--Start of centering div-->
     <h1 class="titlehover">SeeSharpeDen</h1>
+    <h2>Want to join the SeeSharpeDen Discord server?</h2>
+    <h2>Click <a class="discordlinkhover" href="https://discord.gg/KaKQwv8" target="_blank">here</a>!</h2>
     <hr>
-    <h4></h4>
-    <h4>Latest Web Commit: <a href="https://github.com/SeeSharpeDen/website/commit/main" target="_blank"><span id="LatestWebCommit">Connecting to GitHub API...</span></a></h4>
-    <h4>Latest Bot Commit: <a href="https://github.com/SeeSharpeDen/ssd-bot/commit/master" target="_blank"><span id="LatestBotCommit">Connecting to GitHub API...</span></a></h4>
+    <h4>Latest <a href="https://github.com/SeeSharpeDen/website" target="_blank">Web</a> Commit: <a href="https://github.com/SeeSharpeDen/website/commit/main" target="_blank"><span id="LatestWebCommit">Connecting to GitHub API...</span></a></h4>
+    <h4>Latest <a href="https://github.com/SeeSharpeDen/ssd-bot" target="_blank">Bot</a> Commit: <a href="https://github.com/SeeSharpeDen/ssd-bot/commit/master" target="_blank"><span id="LatestBotCommit">Connecting to GitHub API...</span></a></h4>
     <hr>
 </div> <!--End of center div-->
 </body>
@@ -34,6 +38,12 @@
     $("#LatestBotCommit").text(sha);
 });
 </script>
+<!--Loader JS-->
+<script>
+    setTimeout(function(){
+        $('.loader_bg').fadeToggle();
+    }, 1500);
+</script>
 <!--Start CSS-->
 <!--I may move to external sheet but tbh im lazy-->
 
@@ -43,7 +53,7 @@
     }
     .titlehover:hover {
         text-shadow: 4px 4px #ffb300;
-        color: #ffffff;
+        color: #dcdcdc;
         font-family: Ubuntu;
         font-size: 55px;
     }
@@ -57,10 +67,66 @@
         font-family: Ubuntu;
         font-size: 14px;
     }
+    h2 {
+        color: #dcdcdc;
+        font-family: Ubuntu;
+        font-size: 28px;
+    }
     a{
         text-decoration: none;
         color: #ffb300;
     }
+    .discordlinkhover:hover{
+        text-decoration: none;
+        color: #ffb300;
+        text-shadow: 2px 2px #dcdcdc;
+    }
+
+
+    .loader_bg{
+    position: fixed;
+    z-index: 999999;
+    background: #212121;
+    width: 100%;
+    height: 100%;
+}
+.loader{
+    border: 0 soild transparent;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: calc(50vh - 75px);
+    left: calc(50vw - 75px);
+}
+.loader:before, .loader:after{
+    content: '';
+    border: 1em solid #ffb300;
+    border-radius: 50%;
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: loader 2s linear infinite;
+    opacity: 0;
+}
+.loader:before{
+    animation-delay: .5s;
+}
+@keyframes loader{
+    0%{
+        transform: scale(0);
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        transform: scale(1);
+        opacity: 0;
+    }
+}
 </style>
 
 </html>
