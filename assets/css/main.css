@@ -1,0 +1,37 @@
+::selection {
+    background: #ffb300;
+    color: #ffffff;
+  }
+      body{
+          background-color: #212121;
+      }
+      .titlehover:hover {
+          text-shadow: 4px 4px #ffb300;
+          color: #dcdcdc;
+          font-family: Ubuntu;
+          font-size: 55px;
+      }
+      h1 {
+          color: #dcdcdc;
+          font-family: Ubuntu;
+          font-size: 55px;
+      }
+      h4 {
+          color: #dcdcdc;
+          font-family: Ubuntu;
+          font-size: 14px;
+      }
+      h2 {
+          color: #dcdcdc;
+          font-family: Ubuntu;
+          font-size: 28px;
+      }
+      a{
+          text-decoration: none;
+          color: #ffb300;
+      }
+      .discordlinkhover:hover{
+          text-decoration: none;
+          color: #ffb300;
+          text-shadow: 2px 2px #dcdcdc;
+      }
