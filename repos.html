@@ -1,36 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SSD Repos</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu">
+    <title>Document</title>
 </head>
+<div class="topnav">
+    <a href="https://seesharpeden.com">Home</a>
+    <a href="https://seesharpeden.com/repos" class="active">Repos</a>
+    <a href="https://seesharpeden.com/links">Socials</a>
+</div>
 <body>
-    <div class="topnav">
-        <a href="https://seesharpeden.com">Home</a>
-        <a href="https://seesharpeden.com/repos" class="active">Repos</a>
-        <a href="https://seesharpeden.com/links">Socials</a>
-    </div>
-    <h1 class="ssdtitle">Coming Soon</h1>
+    <template id="repoblock">
+        <div class="ssdbot">
+            <h1 class="ssdname">
+                <slot name="name">Repo Name</slot>
+            </h1>
+            <h1 class="ssdhash">
+                <slot name="latestCommit">123456789</slot>
+            </h1>
+        </div>
+    </template>
+
+    <repoblock></repoblock>
+
 </body>
+
+<script type="text/javascript">
+    fetch('https://ssd-repo-api.wingless.workers.dev/')
+        .then((response) => response.json())
+        .then((data) => loaded(data));
+
+    function loaded(data) {
+        console.log(data)
+        let template = document.getElementById('repoblock');
+        data.forEach(element => {
+            let templatecontent = template.content;
+            templatecontent.querySelector("slot[name='name']").innerText=element.name
+            templatecontent.querySelector("slot[name='latestCommit']").innerText=element.latestCommit
+            document.body.appendChild(templatecontent.cloneNode(true));
+        });
+    }
+</script>
 
 <style>
     body {
         background-color: #212121;
     }
-    .ssdtitle {
-        color: #f8b300;
+
+    .ssdbot {
+        font-family: Ubuntu;
         text-align: center;
-        font-family: Ubuntu, Verdana;
-        font-size: 52px;
-        text-decoration: underline #ffffff;
     }
-
-
-
-
+    .ssdname {
+        color: #ffffff;
+    }
+    .ssdhash {
+        color: #f8b300
+    }
     .topnav {
         overflow: hidden;
         font-family: Ubuntu, Verdana;
