@@ -6,15 +6,20 @@
     <title>SSD Links</title>
 </head>
 <body>
-    
+    <div class="topnav">
+        <a href="https://seesharpeden.com">Home</a>
+        <a href="https://seesharpeden.com/repos">Repos</a>
+        <a href="https://seesharpeden.com/links" class="active">Socials</a>
+    </div>
     <!-- Profile picture-->
     <img src="https://raw.githubusercontent.com/SeeSharpeDen/website/main/assets/NVha8dJ4.jpg" alt="profile picture" class="profile-picture">
 <hr>
-    <!-- Links-->
-        <a href="https://seesharpeden.com" class="links">WEBSITE</a>
-        <a href="https://github.com/seesharpeden" class="links">GITHUB</a>
-        <a href="https://blog.seesharpeden.com" class="links">BLOG</a>
-
+    <!-- Links--> <div class="linkify">
+        <a href="https://seesharpeden.com" target="_blank" class="links">WEBSITE</a>
+        <a href="https://discord.gg/82dEsZsvNf" target="_blank" class="links">DISCORD</a>
+        <a href="https://github.com/seesharpeden" target="_blank" class="links">GITHUB</a>
+        <a href="https://blog.seesharpeden.com" target="_blank" class="links">BLOG</a>
+    </div>
 
     <div class="bottom-text">seesharpeden.com</div>
  
@@ -22,9 +27,7 @@
     body {
     background: #212121;
     color: #ffb300;
-    font-family: Ubuntu;
-    font-size: 15px;
-    letter-spacing: 2px;
+
 }
 
 hr{
@@ -48,8 +51,13 @@ img {
     max-width: 100px;
   }
 
+  .linkify {
+    font-family: Ubuntu;
+    font-size: 15px;
+    letter-spacing: 2px;
+  }
 
-.links {
+.linkify a {
       text-align: center;
       margin-top: 20px;
       padding: 20px;
@@ -62,7 +70,7 @@ img {
       border-radius: 40px;
   }
 
-a {
+.linkify .links{
     text-decoration: none;
     color: white;
     transition: color 1s; 
@@ -82,7 +90,28 @@ a:hover {
 }
 
 
+.topnav {
+        overflow: hidden;
+        font-family: Ubuntu, Verdana;
+        background-color: #212121;
+    }
+    .topnav a {
+  float: left;
+  color: #f8b300;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+.topnav a:hover {
+  background-color: #ffffff;
+  color: #212121;
+}
 
+.topnav a.active {
+  background-color: #f8b300;
+  color: #ffffff;
+}
 </style>
 
 </body>
